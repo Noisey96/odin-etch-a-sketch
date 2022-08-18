@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+#grid {
+	height: 960px;
+	width: 960px;
+}
+
+.grid-row {
+	display: flex;
+}
+
+.grid-cell {
+	border: 1px solid #000;
+	border-right: none;
+	border-bottom: none;
+}
+
+.grid-cell:last-child {
+	border-right: 1px solid #000;
+}
+
+.grid-row:last-child {
+	border-bottom: 1px solid #000;
+}
