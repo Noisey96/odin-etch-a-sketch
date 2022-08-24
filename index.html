@@ -9,12 +9,18 @@
 		<script src="/script.js" defer></script>
 	</head>
 	<body>
-		<div id="settings">
-			<div id="current-values">
-				<div class="size">Size: <span></span></div>
-			</div>
-			<div id="controls">
-				<button type="button" class="size">Change size</button>
+		<span id="title">Etch A Sketch</span>
+		<div id="controls">
+			<span id="controls-title">Settings:</span>
+			<div id="controls-container">
+				<div id="color-controls">
+					<label for="color-control">Change Color: </label>
+					<input type="color" id="color-control" value="#000000">
+				</div>
+				<div id="size-controls">
+					<label for="size-control">Change Size: <span id="size"></span></label>
+					<input type="range" id="size-control" min="1" max="100" value="16">
+				</div>
 			</div>
 		</div>
 		<div id="grid"></div>

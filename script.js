@@ -1,5 +1,5 @@
 function color(e) {
-	e.target.style.backgroundColor = "#000";
+	e.target.style.backgroundColor = currentColor;
 }
 
 function initContent(size = 16) {
@@ -19,26 +19,26 @@ function initContent(size = 16) {
 		content.appendChild(newRow);
 	}
 
-	let headerSizeAttr = document.querySelector(
-		"#settings #current-values .size span"
-	);
-	headerSizeAttr.textContent = `${size} x ${size}`;
+	let currentSize = document.querySelector("#size");
+	currentSize.textContent = `${size} x ${size}`;
 }
 
-function changeSize() {
-	let newSize;
-	while (!newSize) {
-		newSize = prompt("Please enter a new size from 1 to 100!");
-		newSize = Number(newSize);
-		if (!newSize || newSize <= 0 || newSize > 100) {
-			newSize = "";
-			alert("Invalid input. Please try again!");
-		}
-	}
+function changeSize(e) {
+	let newSize = e.target.value;
 	initContent(newSize);
 }
 
+function changeColor(e) {
+	let newColor = e.target.value;
+	currentColor = newColor;
+	changeSizeSlider.style.backgroundColor = newColor;
+}
+
+let currentColor = "#000000";
 initContent();
 
-let changeSizeButton = document.querySelector("#controls .size");
-changeSizeButton.addEventListener("click", (_e) => changeSize());
+let changeSizeSlider = document.querySelector("#size-control");
+changeSizeSlider.addEventListener("input", (e) => changeSize(e));
+
+let changeColorPicker = document.querySelector("#color-control");
+changeColorPicker.addEventListener("input", (e) => changeColor(e));
